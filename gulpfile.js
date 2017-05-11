@@ -11,6 +11,7 @@ var gulp = require ('gulp'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     reload = browserSync.reload;
+const gulpStylelint = require('gulp-stylelint');
 var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
@@ -116,3 +117,13 @@ gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 gulp.task('default', ['build', 'webserver', 'watch']);
+
+gulp.task('lint-css', function lintCssTask() {
+    return gulp
+        .src('src/style/**/*.scss')
+        .pipe(gulpStylelint({
+            reporters: [
+                {formatter: 'string', console: true}
+            ]
+        }));
+});
