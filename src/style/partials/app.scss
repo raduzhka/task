@@ -1,7 +1,55 @@
-$font-stack:    Helvetica, sans-serif;
-$primary-color: #333;
 body {
-  font: 100% $font-stack;
-  color: $primary-color;
-  background-color: green;
-};
+  margin: 0;
+  padding: 0;
+  background-color: white;
+}
+div.books {
+  margin: 20px 20px 20px 50px;
+  height: 310px;
+  width: 800px;
+  padding: 10px;
+  border: 1px solid darkslategray;
+  box-shadow: 2px 2px 2px 0 darkslategray;
+}
+div.img {
+  float:left;
+  margin: 0;
+  padding: 0;
+  width: 200px;
+  height: 300px;
+  box-shadow: 2px 2px 2px 0 darkslategray;
+  border: 1px solid darkslategray;
+  background-size: 200px 300px;
+  background-image: url('../../img/1.jpg') ;
+  background-repeat: no-repeat;
+}
+img {
+  width: 180px;
+  height: 280px;
+  border: 0;
+  overflow: hidden;
+}
+.description > p {
+  text-align: justify;
+}
+.infoBook {
+  width: 540px;
+  height: 280px;
+  display: inline-block;
+  margin:20px 0 0 20px;
+  float:left;
+  position:relative;
+}
+hr {
+  border: none;
+  height: 1px;
+  background-color: black;
+}
+.formWithButton {
+  position: absolute;
+  bottom: 0;
+}
+.fullDescription {
+  clear: both;
+  padding-top: 20px;
+}

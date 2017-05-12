@@ -115,7 +115,7 @@ gulp.task('webserver', function () {
 gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
-gulp.task('default', ['build', 'webserver', 'watch', 'stylelint']);
+gulp.task('default', ['build', 'webserver', 'watch']);
 
 
 
@@ -137,6 +137,14 @@ gulp.task('lint-css', function lintCssTask() {
         }));
 });
 
+//require("jsdom").env("", function(err, window) {
+//    if (err) {
+//        console.error(err);
+//        return;
+//    }
+//
+//    var $ = require("jquery")(window);
+//});
 
 gulp.task('stylelint', function() {
     const processors = [
