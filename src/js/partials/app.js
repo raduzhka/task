@@ -6,31 +6,19 @@ $(window).on('load', function () {
         success: function (dataBook) {
             console.log(dataBook);
             for (var a in dataBook) {
-                console.log(dataBook[0]);
-                var template = "<span>{{title}}</span><p ><span>Автор:</span><span>{{author}}</span></p><p><span>Год издания:</span><span>{{publicationYear}}</span></p><div><b>Описание</b><p>{{description}}</p></div>";
-                var html = Mustache.render(template, dataBook[a]);
-                $('.infoBook').html(html);
+                //var template = "<span>{{title}}</span><p ><span>Автор: </span><span>{{author}}</span></p><p><span>Год издания: </span><span>{{publicationYear}}</span></p><div><b>Описание</b><p>{{description}}</p></div>";
+                //var donedata = Mustache.render(template, dataBook[a]);
+                $('.books:first').clone().appendTo('#content')/*.html(donedata)*/;
+                $('.books:last .titleBook').text(dataBook[a].title);
+                $('.books:last .author span:last').text(dataBook[a].author);
+                $('.books:last .pubYear span:last').text(dataBook[a].publicationYear);
+                $('.books:last .description p').text(dataBook[a].description);
             }
         },
         error: function () {
             alert('fail');
         }
     })
-    var data = [
-        {
-            titleBook : "Игра престолов",
-            author : "martin",
-            year: "2014",
-            description: "bla-bla-bla"
-        },
-        {
-            titleBook : "Игра престолов2",
-            author : "martin2",
-            year: "2014",
-            description: "bla-bla-bla2"
-        },
-        ];
-
 });
 
 
