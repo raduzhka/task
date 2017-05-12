@@ -9,33 +9,34 @@
  </head>
 <body>
 //= template/header.html
-<div class="books" id="books">
-    <div class="img">
-    </div>
-    <div class="infoBook">
-        <span class="titleBook">{{title}}</span>
-        <p class="author">
-            <span>Автор:</span>
-            <span>{{author}}</span>
-        </p>
-        <p class="pubYear">
-            <span>Год издания:</span>
-            <span>{{publicationYear}}</span>
-        </p>
-        <div class="description">
-            <b>Описание</b>
-            <p>{{description}}</p>
+<div class="templates">
+    <div class="books" id="books">
+        <div class="img">
         </div>
-        <hr>
-        <div class="formWithButton">
-            <form action="about.html">
-                <button type="button">В корзину</button>
-                <button type="submit">Подробнее</button>
-            </form>
+        <div class="infoBook">
+            <span class="titleBook">{{title}}</span>
+            <p class="author">
+                <span>Автор:</span>
+                <span>{{author}}</span>
+            </p>
+            <p class="pubYear">
+                <span>Год издания:</span>
+                <span>{{publicationYear}}</span>
+            </p>
+            <div class="description">
+                <b>Описание</b>
+                <p>{{description}}</p>
+            </div>
+            <hr>
+            <div class="formWithButton">
+                <form action="about.html">
+                    <button type="button">В корзину</button>
+                    <button type="submit">Подробнее</button>
+                </form>
+            </div>
         </div>
     </div>
 </div>
-
 <section id="content">
 </section>
 //= template/footer.html

@@ -9,7 +9,7 @@ $(window).on('load', function () {
                 var template = $(".books").html();
                 console.log(template);
                 var donedata = Mustache.render(template, dataBook[a]);
-                $('.books:first').clone().appendTo('#content').css({'visibility':'visible', 'display':'block'}).html(donedata);
+                $('.books:first').clone().appendTo('#content').html(donedata);
                 //$('.books:last .titleBook').text(dataBook[a].title);
                 //$('.books:last .author span:last').text(dataBook[a].author);
                 //$('.books:last .pubYear span:last').text(dataBook[a].publicationYear);
