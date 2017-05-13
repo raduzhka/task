@@ -10,6 +10,7 @@ var gulp = require ('gulp'),
     pngquant = require('imagemin-pngquant'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
+    gulpStylelint = require('gulp-stylelint'),
     reload = browserSync.reload;
 var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
@@ -116,16 +117,6 @@ gulp.task('clean', function (cb) {
     rimraf(path.clean, cb);
 });
 gulp.task('default', ['build', 'webserver', 'watch']);
-
-
-
-const gulpStylelint = require('gulp-stylelint');
-const stylelint = require('stylelint');
-const postcss = require('gulp-postcss');
-const syntax_scss = require('postcss-scss');
-const stylelintconfig = require('./.stylelintrc.json');
-const reporter = require('postcss-browser-reporter');
-
 gulp.task('lint-css', function lintCssTask() {
     return gulp
         .src('src/style/**/*.scss')
@@ -136,37 +127,3 @@ gulp.task('lint-css', function lintCssTask() {
             ]
         }));
 });
-
-//require("jsdom").env("", function(err, window) {
-//    if (err) {
-//        console.error(err);
-//        return;
-//    }
-//
-//    var $ = require("jquery")(window);
-//});
-
-gulp.task('stylelint', function() {
-    const processors = [
-       stylelint(stylelintconfig),
-       reporter({
-          selector: 'body:before'
-       })
-    ];
-    return gulp.src(path.src.style) //Выберем наш main.scss
-
-        .pipe(sourcemaps.init()) //То же самое что и с js
-        .pipe(sass()) //Скомпилируем
-
-        .pipe(postcss(processors))
-        .pipe(prefixer()) //Добавим вендорные префиксы
-        .pipe(cssmin()) //Сожмем
-        .pipe(sourcemaps.write())
-        .pipe(gulp.dest(path.build.css)) //И в build
-        .pipe(reload({stream: true}));
-
-
-    //return gulp.src('src/style/**/*.scss')
-      // .pipe(postcss(processors))
-      // .pipe(gulp.dest('./dest'));
- });
