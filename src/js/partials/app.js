@@ -1,3 +1,5 @@
+
+
 $(window).on('load', function () {
     $.ajax ({
         type: 'GET',
@@ -8,12 +10,12 @@ $(window).on('load', function () {
             for (var a in dataBook) {
                 var template = $(".books").html();
                 console.log(template);
-                var donedata = Mustache.render(template, dataBook[a]);
+                var donedata = mustache.render(template, dataBook[a]);
                 $('.books:first').clone().appendTo('#content').html(donedata);
-                //$('.books:last .titleBook').text(dataBook[a].title);
-                //$('.books:last .author span:last').text(dataBook[a].author);
-                //$('.books:last .pubYear span:last').text(dataBook[a].publicationYear);
-                //$('.books:last .description p').text(dataBook[a].description);
+                // $('.books:last .titleBook').text(dataBook[a].title);
+                // $('.books:last .author span:last').text(dataBook[a].author);
+                // $('.books:last .pubYear span:last').text(dataBook[a].publicationYear);
+                // $('.books:last .description p').text(dataBook[a].description);
             }
         },
         error: function () {

@@ -1,3 +1,3 @@
-//= partials/jquery-3.2.1.min.js
-//= partials/mustache.min.js
+var $ = require('jquery');
+var mustache = require('Mustache');
 //= partials/app.js

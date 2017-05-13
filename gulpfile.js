@@ -11,7 +11,8 @@ var gulp = require ('gulp'),
     rimraf = require('rimraf'),
     browserSync = require("browser-sync"),
     gulpStylelint = require('gulp-stylelint'),
-    reload = browserSync.reload;
+    reload = browserSync.reload,
+    browserify = require('gulp-browserify');
 var path = {
     build: { //Тут мы укажем куда складывать готовые после сборки файлы
         html: 'build/',
@@ -57,6 +58,10 @@ gulp.task('js:build', function () {
         .pipe(sourcemaps.init()) //Инициализируем sourcemap
         .pipe(uglify()) //Сожмем наш js
         .pipe(sourcemaps.write()) //Пропишем карты
+        .pipe(browserify({
+          insertGlobals : true,
+          debug : !gulp.env.production
+        }))
         .pipe(gulp.dest(path.build.js)) //Выплюнем готовый файл в build
         .pipe(reload({stream: true})); //И перезагрузим сервер
 });
