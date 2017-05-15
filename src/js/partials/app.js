@@ -8,12 +8,18 @@ $(window).on('load', function () {
         success: function (dataBook) {
             for (var a in dataBook) {
                 var index_of_description_short = dataBook[a].description.substr(0, 220).lastIndexOf('.');
-                var description_short =  dataBook[a].description.substr(0, index_of_description_short.toNumber);
+                var description_short =  dataBook[a].description.substr(0, parseInt(index_of_description_short)+1);
+                var description_short_json = {
+                    description_short : description_short
+                };
+                var description_template = $(".description_template").html();
+                var description = mustache.render(description_template, description_short_json);
+
                 var template = $(".books").html();
-                var description = mustache.render(template, description_short);
                 var donedata = mustache.render(template, dataBook[a]);
-                $('.books:first').clone().appendTo('#content').html(donedata);
-                $('.books:last').children("div .img").css('background-image','url("'+dataBook[a].imageUrl+'")');
+                $('.books:first').clone().appendTo('#content').html(donedata)
+                .children("div .img").css('background-image','url("'+dataBook[a].imageUrl+'")')
+                .closest(".books").find('div .description').html(description);
             }
         },
         error: function () {
