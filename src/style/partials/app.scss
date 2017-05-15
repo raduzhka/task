@@ -3,13 +3,16 @@ body {
   padding: 0;
   background-color: white;
 }
-div.books {
+div.books, .aboutBook{
   margin: 20px 20px 20px 50px;
   height: 310px;
   width: 800px;
   padding: 10px;
   border: 1px solid darkslategray;
   box-shadow: 2px 2px 2px 0 darkslategray;
+}
+.aboutBook{
+  height: auto;
 }
 .templates{
   display: none;
