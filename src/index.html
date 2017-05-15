@@ -10,7 +10,8 @@
 <body>
 //= template/header.html
 <div class="templates">
-    <div class="books" id="books">
+    <div class="books">
+        <span class="idBook">{{id}}</span>
         <div class="img">
         </div>
         <div class="infoBook">
@@ -29,9 +30,9 @@
             </div>
             <hr>
             <div class="formWithButton">
-                <form action="about.html">
+                <form action="#">
                     <button type="button">В корзину</button>
-                    <button type="submit">Подробнее</button>
+                    <button type="button" class="about_button">Подробнее</button>
                 </form>
             </div>
         </div>

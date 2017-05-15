@@ -23,7 +23,7 @@ div.img {
   box-shadow: 2px 2px 2px 0 darkslategray;
   border: 1px solid darkslategray;
   background-size: 200px 300px;
-  background-image: url('../../img/1.jpg') ;
+  // background-image: url('../../img/1.jpg') ;
   background-repeat: no-repeat;
 }
 img {
@@ -40,8 +40,10 @@ img {
   height: 280px;
   display: inline-block;
   margin:20px 0 0 20px;
-  float:left;
   position:relative;
+}
+.idBook {
+  display: none;
 }
 hr {
   border: none;
